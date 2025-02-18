@@ -9,38 +9,32 @@ const Tags = [
   },
   {
     id: 2,
-    name: "Checked out",
-    value: "checked-out",
+    name: "No Discount",
+    value: "no-discount",
   },
   {
     id: 3,
-    name: "Checked in",
-    value: "checked-in",
-  },
-  {
-    id: 4,
-    name: "Unconfirmed",
-    value: "unconfirmed",
+    name: "With Discount",
+    value: "with-discount",
   },
 ];
 
 function CabinHeader() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const discount = searchParams.get("discount") || "all";
+  const discount = searchParams.get("status") || "all";
 
   React.useEffect(() => {
-    searchParams.set("discount", discount);
+    searchParams.set("status", discount);
     setSearchParams(searchParams);
   }, [searchParams, setSearchParams, discount]);
 
   function toggleDiscount(discount) {
-    setSearchParams({
-      discount,
-    });
+    searchParams.set("status", discount);
+    setSearchParams(searchParams);
   }
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="mb-10 flex justify-between items-center">
       <h1 className="font-semibold text-2xl ">All cabins</h1>
       <div className="flex items-center gap-4">
         <div className="bg-white flex gap-2 rounded-md py-1  px-2 text-sm cursor-pointer">
@@ -55,8 +49,6 @@ function CabinHeader() {
             </span>
           ))}
         </div>
-        {/* Selected Section */}
-        Selected
       </div>
     </div>
   );

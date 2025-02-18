@@ -3,6 +3,7 @@ import { HiOutlineUser } from "react-icons/hi";
 import DefaultUserLogo from "/default-user.jpg";
 import { CiLight } from "react-icons/ci";
 import { GiReturnArrow } from "react-icons/gi";
+import { RiLogoutBoxRLine } from "react-icons/ri";
 
 function Header() {
   return (
@@ -18,7 +19,7 @@ function Header() {
       <div className="flex items-center gap-3 text-xl text-blue-700">
         <HiOutlineUser />
         <CiLight />
-        <GiReturnArrow />
+        <RiLogoutBoxRLine />
       </div>
     </header>
   );
