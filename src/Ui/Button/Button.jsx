@@ -1,6 +1,12 @@
 import React from "react";
 
-function Button({ type = "primary" }) {
+function Button({
+  disabled = false,
+  variation = "primary",
+  onClick,
+  children,
+  type,
+}) {
   const deafultStyle = "px-3 py-2 text-xs text-white  rounded-md ";
 
   const typeStyle = {
@@ -8,8 +14,12 @@ function Button({ type = "primary" }) {
   };
 
   return (
-    <button className={`${deafultStyle} ${typeStyle[type]}`}>
-      Add New Cabin
+    <button
+      type={type}
+      disabled={disabled}
+      onClick={() => onClick?.()}
+      className={`${deafultStyle} ${typeStyle[variation]}`}>
+      {children}
     </button>
   );
 }
